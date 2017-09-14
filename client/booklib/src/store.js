@@ -1,28 +1,27 @@
 import vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-// import router from './router/index'
+import router from './router/index'
 
 vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    userLogin: []
+    loginUser: []
   },
-  mutations: {
-    login (state, payload) {
-      state.userLogin = payload
+  mutation: {
+    isLogin (state. payload) {
+      state.loginUser = payload
     }
   },
   actions: {
-    login (store, payload) {
+    loginAxios (store, payload) {
       axios.post('http://localhost:3000/users/signin', {
         username: payload.username,
         password: payload.password
       })
-      .then((dataLogin) => {
-        console.log(dataLogin)
-        store.commit('login', dataLogin.data)
+      .then((data) => {
+        store.commit('islogin', data.data)
       })
     }
   }
