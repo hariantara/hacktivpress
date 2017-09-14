@@ -10,18 +10,19 @@ export default new Vuex.Store({
     loginUser: []
   },
   mutation: {
-    isLogin (state. payload) {
-      state.loginUser = payload
-    }
   },
   actions: {
     loginAxios (store, payload) {
+      console.log('PAYLOAD LOGIN AXIOS', payload)
       axios.post('http://localhost:3000/users/signin', {
         username: payload.username,
         password: payload.password
       })
-      .then((data) => {
-        store.commit('islogin', data.data)
+      .then((response) => {
+        console.log('===>', response)
+        this.state.loginUser = response.data
+        localStorage.setItem('token', response.data)
+        router.push('/home')
       })
     }
   }

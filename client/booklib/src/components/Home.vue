@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="#">Hacktiv Press</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
@@ -22,12 +22,20 @@
     </div>
   </div>
 </nav>
+
+<div class="login">
+  <Login></Login>
+</div>
   </div>
 </template>
 
 <script>
+import Login from '@/components/Login'
 export default {
   name: 'home',
+  components: {
+    Login
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
