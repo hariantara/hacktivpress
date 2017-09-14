@@ -8,11 +8,15 @@ vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     loginUser: [],
-    signupuser: []
+    signupuser: [],
+    data: []
   },
   mutation: {
     saveUserData (state, payload) {
       state.signupuser = payload
+    },
+    read (state, payload) {
+      state.data = payload
     }
   },
   actions: {
@@ -36,6 +40,12 @@ export default new Vuex.Store({
       })
       .then((response) => {
         store.commit('saveUserData', response.data)
+      })
+    },
+    readAll (store. payload) {
+      axios.get('http://localhost:3000/books/read')
+      .then((response) => {
+        store.commit('read', response.data)
       })
     }
   }

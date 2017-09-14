@@ -27,11 +27,17 @@
     <div class="login">
       <Login></Login>
     </div>
+    <div class="data" v-for="book in book">
+      <p>{{ book.title}}</p>
+      <p>{{ book.category}}</p>
+      <p>{{ book.content}}</p>
+    </div>
   </div>
 </template>
 
 <script>
 import Login from '@/components/Login'
+import { mapActions } from 'vuex'
 // import Logup from '@/components/Logup'
 export default {
   name: 'home',
@@ -45,11 +51,22 @@ export default {
       token: localStorage.getItem('token')
     }
   },
+  computed () {
+    book () {
+      return this.$store.state.data
+    }
+  },
   methods: {
+    ...mapActions([
+      'readAll'
+    ])
     logout () {
       localStorage.removeItem('token')
       this.$router.push('/home')
     }
+  },
+  mounted () {
+    this.readAll()
   }
 }
 </script>
