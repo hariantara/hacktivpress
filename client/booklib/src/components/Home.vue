@@ -17,7 +17,8 @@
         <li><a href="#">Category</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Login</a></li>
+        <li><a href="">Login</a></li>
+        <li><a href="" @click='logout()'>Log Out</a></li>
       </ul>
     </div>
   </div>
@@ -42,6 +43,12 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       token: localStorage.getItem('token')
+    }
+  },
+  methods: {
+    logout () {
+      localStorage.removeItem('token')
+      this.$router.push('/home')
     }
   }
 }

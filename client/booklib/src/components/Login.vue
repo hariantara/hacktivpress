@@ -8,7 +8,7 @@
           <input type="text" placeholder="Enter Username" name="uname" required v-model='login.username'>
           <label><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required v-model='login.password'>
-          <button type="button" @click='loginform()'>Create</button>
+          <button type="button" @click='loginform()'>Sign In</button>
           <router-link :to="'/home/signup'"><button type="button" name="button">Signup</button></router-link>
         </div>
       </form>

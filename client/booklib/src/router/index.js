@@ -19,7 +19,7 @@ export default new Router({
       }]
     },
     {
-      path: '/signup',
+      path: 'home/signup',
       name: 'signup',
       component: Logup
     }
