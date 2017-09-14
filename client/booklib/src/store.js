@@ -7,9 +7,13 @@ vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    loginUser: []
+    loginUser: [],
+    signupuser: []
   },
   mutation: {
+    saveUserData (state, payload) {
+      state.signupuser = payload
+    }
   },
   actions: {
     loginAxios (store, payload) {
@@ -23,6 +27,15 @@ export default new Vuex.Store({
         this.state.loginUser = response.data
         localStorage.setItem('token', response.data)
         router.push('/home')
+      })
+    },
+    loginUpAxios (store, payload) {
+      axios.post('http://localhost:3000/users/signup', {
+        username: payload.username,
+        password: payload.password
+      })
+      .then((response) => {
+        store.commit('saveUserData', response.data)
       })
     }
   }

@@ -8,8 +8,8 @@
           <input type="text" placeholder="Enter Username" name="uname" required v-model='login.username'>
           <label><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required v-model='login.password'>
-          <button type="button" @click='loginform()'>Login</button>
-          <!-- <router-link :to="'/home'"><button type="button" v-on:click="loginUser()">Login</button></router-link> -->
+          <button type="button" @click='loginform()'>Create</button>
+          <router-link :to="'/home/signup'"><button type="button" name="button">Signup</button></router-link>
         </div>
       </form>
     </div>
@@ -17,8 +17,12 @@
 </template>
 
 <script>
+import Logup from '@/components/Logup'
 import { mapActions } from 'vuex'
 export default {
+  components: {
+    Logup
+  },
   data () {
     return {
       login: {

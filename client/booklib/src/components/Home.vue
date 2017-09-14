@@ -23,22 +23,25 @@
   </div>
 </nav>
 
-<div class="login">
-  <Login></Login>
-</div>
+    <div class="login">
+      <Login></Login>
+    </div>
   </div>
 </template>
 
 <script>
 import Login from '@/components/Login'
+// import Logup from '@/components/Logup'
 export default {
   name: 'home',
   components: {
     Login
+    // Logup
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      token: localStorage.getItem('token')
     }
   }
 }
