@@ -1,8 +1,8 @@
 # hacktivpress
 
-# Alt-H2 installation
+Alt-H2 installation
 
-#Alt-H2 Server Installation
+Alt-H2 Server Installation
 1. open folder server, and npm install
 2. npm start to run server
 
